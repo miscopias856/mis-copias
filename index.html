@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIS COPIAS | Catálogo Online</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="marca">
+    <h1>MIS COPIAS</h1>
+    <p>¡Más que copias!</p>
+    <span>CATÁLOGO ONLINE</span>
+  </div>
+  <nav class="menu">
+    <button data-view="inicio">Inicio</button>
+    <button data-view="categorias">Categorías</button>
+    <button data-view="nosotros">Nosotros</button>
+    <button data-view="contacto">Contacto</button>
+    <button data-view="pedidos">🛒 Mis pedidos</button>
+  </nav>
+</header>
+
+<main>
+  <section id="inicio" class="vista activa">
+    <h2>¡Bienvenidos a MIS COPIAS!</h2>
+    <p>Encontrá todo lo que necesitás en un solo lugar.</p>
+    <p>Librería, regalos, impresiones, personalizados y mucho más.</p>
+    <button class="boton-principal" data-view="categorias">Explorar catálogo</button>
+  </section>
+
+  <section id="categorias" class="vista">
+    <h2>Nuestras categorías</h2>
+    <p>Elegí una categoría para descubrir nuestros productos.</p>
+    <div id="categorias-container" class="categorias-container"></div>
+  </section>
+
+  <section id="catalogo" class="vista">
+    <button class="boton-secundario" data-view="categorias">← Volver a categorías</button>
+    <h2 id="titulo-categoria">Productos</h2>
+    <div id="productos-container" class="productos-container"></div>
+  </section>
+
+  <section id="nosotros" class="vista">
+    <h2>Sobre MIS COPIAS</h2>
+    <p>Somos un local que busca ofrecerte variedad, creatividad y soluciones para tu día a día.</p>
+    <p>¡Somos mucho más que copias!</p>
+  </section>
+
+  <section id="contacto" class="vista">
+    <h2>Contactanos</h2>
+    <p>¿Tenés alguna consulta o querés realizar un pedido?</p>
+    <a class="boton-principal" href="https://wa.me/543812160633" target="_blank" rel="noopener">
+      Escribinos por WhatsApp
+    </a>
+  </section>
+
+  <section id="pedidos" class="vista">
+    <h2>🛒 Mis pedidos</h2>
+    <div id="carrito-container"></div>
+    <div id="carrito-total"></div>
+    <button id="enviar-pedido" class="boton-principal">Enviar mi pedido por WhatsApp</button>
+  </section>
+
+  <section id="administracion" class="vista">
+    <h2>Administración de MIS COPIAS</h2>
+    <div id="login-admin">
+      <p>Ingresá tu contraseña para administrar el catálogo.</p>
+      <input type="password" id="clave-admin" placeholder="Contraseña">
+      <button id="ingresar-admin" class="boton-principal">Ingresar</button>
+      <p id="mensaje-login" class="mensaje"></p>
+    </div>
+
+    <div id="panel-admin" hidden>
+      <div class="admin-cabecera">
+        <h3>Productos del catálogo</h3>
+        <button id="nuevo-producto" class="boton-principal">+ Agregar producto</button>
+      </div>
+
+      <form id="form-producto" hidden>
+        <h3 id="titulo-formulario">Nuevo producto</h3>
+        <input type="hidden" id="producto-id">
+
+        <label for="nombre-producto">Nombre del producto</label>
+        <input id="nombre-producto" required placeholder="Ej.: Lapicera azul">
+
+        <label for="categoria-producto">Categoría</label>
+        <select id="categoria-producto" required></select>
+
+        <label for="descripcion-producto">Descripción</label>
+        <textarea id="descripcion-producto" rows="3" placeholder="Descripción del producto"></textarea>
+
+        <label for="precio-producto">Precio en pesos</label>
+        <input id="precio-producto" type="number" min="0" step="1" placeholder="Ej.: 800">
+
+        <label for="tipo-precio">Precio</label>
+        <select id="tipo-precio">
+          <option value="fijo">Precio fijo</option>
+          <option value="consultar">A consultar</option>
+        </select>
+
+        <label for="presentacion-producto">Presentación o cantidad por paquete</label>
+        <input id="presentacion-producto" placeholder="Ej.: Unidad, paquete de 6, paquete de 20">
+
+        <label for="imagen-producto">Fotografía del producto</label>
+        <input id="imagen-producto" type="file" accept="image/*">
+        <img id="vista-previa" class="vista-previa" alt="Vista previa" hidden>
+
+        <div class="acciones-formulario">
+          <button type="submit" class="boton-principal">Guardar producto</button>
+          <button type="button" id="cancelar-edicion" class="boton-secundario">Cancelar</button>
+        </div>
+        <p id="mensaje-formulario" class="mensaje"></p>
+      </form>
+
+      <div id="admin-productos" class="admin-productos"></div>
+      <button id="cerrar-admin" class="boton-secundario">Cerrar sesión</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 MIS COPIAS</p>
+  <p>¡Más que copias! ❤️</p>
+  <button id="abrir-admin" class="acceso-admin">Administración</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
